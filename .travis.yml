@@ -1,0 +1,23 @@
+language:
+- generic
+dist: trusty
+sudo: true
+addons:
+  apt:
+    packages:
+    - texlive-latex-extra
+    - texlive-luatex
+    - cm-super
+    - texlive-bibtex-extra
+    - latexmk
+    - tex4ht
+    - biber
+    - texlive-fonts-recommended
+    - texlive-lang-italian
+    - latex-xcolor
+script:
+- make compile
+after_failure:
+- cat Blockchain.log
+before_deploy:
+- git fetch --tags
