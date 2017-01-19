@@ -15,6 +15,7 @@ addons:
     - texlive-fonts-recommended
     - texlive-lang-italian
     - latex-xcolor
+    - texlive-publishers
 script:
 - make compile
 after_failure:
