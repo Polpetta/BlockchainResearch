@@ -100,6 +100,14 @@ To solve this problem transaction need to be timestamped. A timestamp is given
 to a transaction and it's added to its hash. To eliminate every possibility of
 alterations, the previous timestamp is added into the hash too.
 
+\subsubsection{Blocks}
+A list of transactions are put in a set called \textit{block}. Every block has
+a link to the previous and to the next, forming the real \textbf{blockchain}.
+The blocks' order is defined by the timestamps in the transactions.
+
+Sometimes it could happen that a list of blocks fork from the main chain. In
+this case, the shortest chain will be eventually discarded, and all the miners
+will restart working in the longest one\cite{sok15}.
 
 \subsection{Proof-of-Work}
 % need to speak about this, it's important
