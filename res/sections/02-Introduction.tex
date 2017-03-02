@@ -91,6 +91,7 @@ span of time, causing dispute to who should receive the payment.
 \end{enumerate}
 
 \paragraph*{Transactions updates}
+\label{TU}
 $B$ needs all the transactions in order to be able to recognize a possible
 fraud from $A$. To accomplish this all the transactions have to be broadcast to
 everyone on the network, making it publicly available.
@@ -108,6 +109,20 @@ The blocks' order is defined by the timestamps in the transactions.
 Sometimes it could happen that a list of blocks fork from the main chain. In
 this case, the shortest chain will be eventually discarded, and all the miners
 will restart working in the longest one\cite{sok15}.
+
+\subsubsection{Peer-to-Peer Network}
+
+Blockchain is a peer-to-peer database, meaning that there isn't a central
+server that store all the data, the data are spread through all the peers.
+In this way anyone in the network owns a copy of the whole database. The first
+time a peer connect to the network it could require some time to sync. In the
+meantime, no operation is permitted. A Blockchain database can grown a lot
+during the years. For example, Bitcoin's Blockchain\footnote{N.B.: this is a 8
+years old database.} size is roughly 100GB\footnote{GB = GigaByte}. This could
+be an obstacle initially for the new members of the network. We will see how
+this problem can be solved.
+As said in \ref{TU}, every transaction is broadcast through the network, when
+the miners mine a new block, every peer starts to download it.
 
 \subsection{Proof-of-Work}
 % need to speak about this, it's important
