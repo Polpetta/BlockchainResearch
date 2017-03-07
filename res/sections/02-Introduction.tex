@@ -41,12 +41,12 @@ In this section we will see every component and how it behave.
 \subsubsection{Transaction}
 It represents a value's movement between a user $A$ and another (let's
 say $B$). A transaction contain an array of outputs and an array of
-inputs\cite{sok15}: the sum of the outputs must be less or equal than the sum of
-the inputs. This container is usually hashed with SHA-256, in order to gain a
+inputs\cite{sok15}: the outputs sum must be less or equal than the inputs sum. 
+This container is usually hashed with SHA-256, in order to have a
 unique ID.
 
-A transaction change the state of the database, and this change need to be saved
-in the database itself. So the database is a list of growing transactions.
+A transaction change the database state, making it a list of growing 
+transactions.
 In order to validate a transaction, we need to sign it in some way. Asymmetric
 keys are mandatory in this process.
 
@@ -66,12 +66,12 @@ public key of the next owner ($B$)
 Several problems arise from this:
 \begin{itemize}
  \item No one can guarantee the transaction validity
- \item The user $A$ could try to spend two times the same value
+ \item $A$ could spend two times the same value
 \end{itemize}
 
 \paragraph*{Transaction Validity}
 The list of transactions could be verified thanks to the chain of ownership:
-indeed, every users has a local copy of the database so it has the possibility
+in fact, every users has a local copy of the database so it has the possibility
 to check the whole transaction history and define if the transaction is valid.
 
 \paragraph*{Double spending problem}
@@ -82,8 +82,8 @@ the entity could act arbitrarily, for instance denying payments to specific
 groups of people.
 
 To ensure that $A$ is giving moneys that were not already used, $B$ need to
-check all the transaction history. In this case, only the earliest transaction
-is valid\cite{nakamoto08}. This leads to two minor problems:
+check all the transactions. In this case, only the earliest is 
+valid\cite{nakamoto08}. This leads to two minor problems:
 \begin{enumerate}
  \item $B$ need to have a list of all the transaction
  \item $A$ could try to pay $B$ and $C$ with the same money in a very short
@@ -94,33 +94,36 @@ span of time, causing dispute to who should receive the payment.
 \label{TU}
 $B$ needs all the transactions in order to be able to recognize a possible
 fraud from $A$. To accomplish this all the transactions have to be broadcast to
-everyone on the network, making it publicly available.
+everyone in the network, making it publicly available.
 
 \paragraph*{Timestamps}
-To solve this problem transaction need to be timestamped. A timestamp is given
-to a transaction and it's added to its hash. To eliminate every possibility of
-alterations, the previous timestamp is added into the hash too.
+To solve this problem every transaction need to be timestamped. A timestamp is 
+given to a transaction and it's added to its hash. In order to eliminate every 
+possibility of alterations, the previous transaction timestamp is added into 
+the hash too.
 
-\subsubsection{Blocks}
+\subsubsection{Block}
 A list of transactions are put in a set called \textit{block}. Every block has
-a link to the previous and to the next, forming the real \textbf{blockchain}.
-The blocks' order is defined by the timestamps in the transactions.
+a link to the previous and another to the next, forming the real 
+\textbf{blockchain}.
+The blocks order is defined by the timestamp inside every transaction.
 
 Sometimes it could happen that a list of blocks fork from the main chain. In
 this case, the shortest chain will be eventually discarded, and all the miners
-will restart working in the longest one\cite{sok15}.
+will restart working on the longest\cite{sok15}.
 
 \subsubsection{Peer-to-Peer Network}
 
 Blockchain is a peer-to-peer database, meaning that there isn't a central
-server that store all the data, the data are spread through all the peers.
+server that store all the data, but the information is spread through all the 
+peers.
 In this way anyone in the network owns a copy of the whole database. The first
-time a peer connect to the network it could require some time to sync. In the
-meantime, no operation is permitted. A Blockchain database can grown a lot
-during the years. For example, Bitcoin's Blockchain\footnote{N.B.: this is a 8
-years old database.} size is roughly 100GB\footnote{GB = GigaByte}. This could
-be an obstacle initially for the new members of the network. We will see how
-this problem can be solved.
+time a peer connect to the network it has to wait and get in sync with the 
+other peers. In the meantime, no operation is permitted. A Blockchain database 
+can grow a lot during the years. For example, Bitcoin's 
+Blockchain\footnote{N.B.: this is a 8 years old database.} size is roughly 
+100GB\footnote{GB = GigaByte}. This could be an issue initially for the new 
+members of the network. We will see how this problem can be solved.
 As said in \ref{TU}, every transaction is broadcast through the network so when
 the miners mine a new block every peer starts to download it.
 
