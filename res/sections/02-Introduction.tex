@@ -41,11 +41,11 @@ In this section we will see every component and how it behave.
 \subsubsection{Transaction}
 It represents a value's movement between a user $A$ and another (let's
 say $B$). A transaction contain an array of outputs and an array of
-inputs\cite{sok15}: the outputs sum must be less or equal than the inputs sum. 
+inputs\cite{sok15}: the outputs sum must be less or equal than the inputs sum.
 This container is usually hashed with SHA-256, in order to have a
 unique ID.
 
-A transaction change the database state, making it a list of growing 
+A transaction change the database state, making it a list of growing
 transactions.
 In order to validate a transaction, we need to sign it in some way. Asymmetric
 keys are mandatory in this process.
@@ -82,7 +82,7 @@ the entity could act arbitrarily, for instance denying payments to specific
 groups of people.
 
 To ensure that $A$ is giving moneys that were not already used, $B$ need to
-check all the transactions. In this case, only the earliest is 
+check all the transactions. In this case, only the earliest is
 valid\cite{nakamoto08}. This leads to two minor problems:
 \begin{enumerate}
  \item $B$ need to have a list of all the transaction
@@ -97,17 +97,18 @@ fraud from $A$. To accomplish this all the transactions have to be broadcast to
 everyone in the network, making it publicly available.
 
 \paragraph*{Timestamps}
-To solve this problem every transaction need to be timestamped. A timestamp is 
-given to a transaction and it's added to its hash. In order to eliminate every 
-possibility of alterations, the previous transaction timestamp is added into 
+To solve this problem every transaction need to be timestamped. A timestamp is
+given to a transaction and it's added to its hash. In order to eliminate every
+possibility of alterations, the previous transaction timestamp is added into
 the hash too.
 
 \subsubsection{Block}
 A list of transactions are put in a set called \textit{block}. Every block has
-a link to the previous and another to the next, forming the real 
+a link to the previous and another to the next, forming the real
 \textbf{blockchain}.
 The blocks order is defined by the timestamp inside every transaction.
 
+\label{fork}
 Sometimes it could happen that a list of blocks fork from the main chain. In
 this case, the shortest chain will be eventually discarded, and all the miners
 will restart working on the longest\cite{sok15}.
@@ -115,24 +116,36 @@ will restart working on the longest\cite{sok15}.
 \subsubsection{Peer-to-Peer Network}
 
 Blockchain is a peer-to-peer database, meaning that there isn't a central
-server that store all the data, but the information is spread through all the 
+server that store all the data, but the information is spread through all the
 peers.
 In this way anyone in the network owns a copy of the whole database. The first
-time a peer connect to the network it has to wait and get in sync with the 
-other peers. In the meantime, no operation is permitted. A Blockchain database 
-can grow a lot during the years. For example, Bitcoin's 
-Blockchain\footnote{N.B.: this is a 8 years old database.} size is roughly 
-100GB\footnote{GB = GigaByte}. This could be an issue initially for the new 
+time a peer connect to the network it has to wait and get in sync with the
+other peers. In the meantime, no operation is permitted. A Blockchain database
+can grow a lot during the years. For example, Bitcoin's
+Blockchain\footnote{N.B.: this is a 8 years old database.} size is roughly
+100GB\footnote{GB = GigaByte}. This could be an issue initially for the new
 members of the network. We will see how this problem can be solved.
 As said in \ref{TU}, every transaction is broadcast through the network so when
 the miners mine a new block every peer starts to download it.
 
 \subsection{Proof-of-Work}
-% need to speak about this, it's important
-% bla bla
-In a Blockchain database, peers can emit new transactions to the network. These 
-need to be added into blocks and these blocks needs to be concatenated in order 
-to form a block chain. These operations are performed by \textbf{miners}.
-The peers have to solve a computational problem, based on the \textit{one-way} 
-hash property. This property says that it's computationally infeasible to find 
+
+In a Blockchain database, peers can emit new transactions in the network. These
+need to be added into blocks and these blocks needs to be concatenated in order
+to form a block chain. This process is performed by \textbf{miners}.
+The peers have to solve a computational problem, based on the \textit{one-way}
+hash property. This property says that it's computationally infeasible to find
 an $x$ such that $H(x) = h$.
+In every block a \textit{nonce} field is added, and miners have to found an
+hash for that block that its value is less than the previous one\cite{sok15}.
+The only solution to solve this problem is to try every possible nonce
+combination that result in an hash that is less than the previous. Every time a
+new block is added to the block chain, the problem becomes computationally more
+difficult to solve.
+When two different miners found a different solution a fork can happen. As
+already said above (\ref{fork}), only the longest chain is kept eventually.
+
+Every time a puzzle is solved the miners (that can form groups called
+\textit{pools}) typically gain a reward. This reward is important to keep miners
+working on the blockchain. Also, we will see how this reward is important when
+a Blockchain database is used in a cryptocurrency.
