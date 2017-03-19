@@ -25,7 +25,25 @@ privacy about the transaction content. Everyone can see how much is sent to
 other addresses. Many websites provide functionalities\footnote{A complete
 website for search Bitcoin transactions and blocks:
 \url{https://blockexplorer.com/}.} that allows anyone to easily search data in a
-Blockchain database. The real privacy that Blockchain offer it's defined as
+Blockchain database. The ``real'' privacy that Blockchain offer it's defined as
 pseudo-privacy: everyone can see the details of any transaction, but it's very
 difficult to know the people behind a payment, because the transfer is
-identified only with wallets, that aren't physically linked to someone.
+identified only with wallets, that aren't physically linked to someone. There
+are different studies \cite{guadamuz15} though that point out how it's
+relatively easy for an attacker to discover user information thanks to payments
+on online shops. An user could buy some good from an online store with a
+cryptocurrency, where he's registered with a username and password, linking
+\textit{de facto} his identity with his wallet. Using a
+\textit{mixer}\footnote{Mixers are online websites that splits the amount to
+send to someone into different wallets, then they make fake transactions in
+order obfuscate the sender to eventually send the money to the original
+recipient.} could mitigate this problem, making more difficult to rebuild
+history transactions for a single user.
+
+\subsection{Account management}
+
+User and account concepts aren't existing in the Blockchain implementation.
+Therefore there isn't any real account management, and no password. Recovering a
+lost wallet is very difficult, because if the asymmetric keys are lost there is
+no way to reclaim the transactions, hence to reclaim the money. This Blockchain
+characteristic lead to money being locked-in forever into lost accounts.
