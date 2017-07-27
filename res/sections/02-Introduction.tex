@@ -50,9 +50,10 @@ parts\cite{sok15}:
 In this section we will see every component and how it behave.
 
 \subsubsection{Transaction}
-It represents a value's movement between a user $A$ and another (let's
-say $B$). A transaction contain an array of outputs and an array of
-inputs\cite{sok15}: the outputs sum must be less or equal than the inputs sum.
+It represents a value's movement between user $A$ and another (let's
+say $B$). A transaction contains an array of outputs and an array of
+inputs\cite{sok15}: the sum of outputs must be less or equal than the sum of
+the inputs.
 This container is usually hashed with SHA-256, in order to have a
 unique ID.
 
@@ -96,7 +97,7 @@ To ensure that $A$ is giving moneys that were not already used, $B$ need to
 check all the transactions. In this case, only the earliest is
 valid\cite{nakamoto08}. This leads to two minor problems:
 \begin{enumerate}
- \item $B$ need to have a list of all the transaction
+ \item $B$ needs to have a list of all the transaction
  \item $A$ could try to pay $B$ and $C$ with the same money in a very short
 span of time, causing dispute to who should receive the payment.
 \end{enumerate}
@@ -114,9 +115,9 @@ possibility of alterations, the previous transaction timestamp is added into
 the hash too.
 
 \subsubsection{Block}
-A list of transactions are put in a set called \textit{block}. Every block has
-a link to the previous and another to the next, forming the real
-\textbf{blockchain}.
+A set of transactions are put in a place together called \textit{block}. Every
+block has a link to the previous one and another to the next one, forming
+indeed the \textbf{blockchain}.
 The blocks order is defined by the timestamp inside every transaction.
 
 \label{fork}
@@ -135,7 +136,22 @@ other peers. In the meantime, no operation is permitted. A Blockchain database
 can grow a lot during the years. For example, Bitcoin's
 Blockchain\footnote{N.B.: this is a 8 years old database.} size is roughly
 100GB\footnote{GB = GigaByte}. This could be an issue initially for the new
-members of the network. We will see how this problem can be solved.
+members of the network.
+This great amount of data can be reduced though if transactions are hashed in a
+Merkle tree, that is a data structure similar to a binary tree. In a complete
+binary tree we have that every internal node has two children. A Merkle tree is
+a complete binary tree where every internal node has a label that is the hash
+of the labels or values of its children\cite{szydlo04}. The advantage of using
+this technique is that only the root of the tree needs to be stored in the
+block and not all the transactions\cite{nakamoto08} (thus saving space), on the
+other hand this require additional computational time to check all the
+transactions tree. Moreover, there is the possibility of what is called a
+\textit{second preimage} attack on the Merkle root, where an attacker could
+change part of the tree with another that has the same hash\cite{rogaway04}. In
+order to mitigate this attack a preimage attack resistant hash algorithm should
+be choose.
+
+
 As said in \ref{TU}, every transaction is broadcast through the network so when
 the miners mine a new block every peer starts to download it.
 
