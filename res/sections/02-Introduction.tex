@@ -158,11 +158,28 @@ the miners mine a new block every peer starts to download it.
 
 % TODO there are more than one mining algorithm! subsection for mining
 %algorithm and a paragraph for ``proof-of-work''
-\subsection{Proof-of-Work}
-
+\subsection{Mining algorithms}
 In a Blockchain database, peers can emit new transactions in the network. These
 need to be added into blocks and these blocks needs to be concatenated in order
 to form a block chain. This process is performed by \textbf{miners}.
+There are different ways to attach blocks, and this depends on the mining
+algorithm used: first of all, you could elect one miner every block and give
+it the task to build the next block. This approach works only if all the miners
+are trusted, because if there is only one miner infected or not trusted he
+could mine a block with non-authorized transaction, thus attacking the
+Blockchain. Another solution could be allowing only a very-restricted number of
+computer to mine the Blockchain: supposing they are all trustworthy this
+approach would fail the initial Blockchain design, centralizing the
+network.
+A solution that has kicked off well seems to be the one where all the nodes in
+the network are allowed to mine, and the first one who solves a
+computational-intensive puzzle can attach the block to the existing chain,
+receiving a reward for the work made. We will see an example of this approach,
+called proof-of-work.
+
+
+\paragraph{Proof-of-Work}
+
 The peers have to solve a computational problem, based on the \textit{one-way}
 hash property. This property says that it's computationally infeasible to find
 an $x$ such that $H(x) = h$.
@@ -177,7 +194,7 @@ already said above (\ref{fork}), only the longest chain is kept eventually.
 
 Every time a puzzle is solved the miners (that can form groups called
 \textit{pools}) typically gain a reward. This reward is important to keep miners
-working on the blockchain. Also, we will see how this reward is important when
+working on the block chain. Also, we will see how this reward is important when
 a Blockchain database is used in a cryptocurrency.
 
 This method was proposed for preventing abuse such e-mail spam, and for this
