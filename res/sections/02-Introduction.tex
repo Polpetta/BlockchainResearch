@@ -132,7 +132,7 @@ Blockchain is a peer-to-peer database, meaning that there isn't a central
 server that store all the data, but the information is spread through all the
 peers.
 In this way anyone in the network owns a copy of the whole database. The first
-time a peer connect to the network it has to wait and get in sync with the
+time a peer connects to the network it has to wait and get in sync with the
 other peers. In the meantime, no operation is permitted. A Blockchain database
 can grow a lot during the years. For example, Bitcoin's
 Blockchain\footnote{N.B.: this is a 8 years old database.} size is roughly
@@ -160,7 +160,7 @@ the miners mine a new block every peer starts to download it.
 %algorithm and a paragraph for ``proof-of-work''
 \subsection{Mining algorithms}
 In a Blockchain database, peers can emit new transactions in the network. These
-need to be added into blocks and these blocks needs to be concatenated in order
+need to be added into blocks and these blocks need to be concatenated in order
 to form a block chain. This process is performed by \textbf{miners}.
 There are different ways to attach blocks, and this depends on the mining
 algorithm used: first of all, you could elect one miner every block and give
@@ -168,14 +168,14 @@ it the task to build the next block. This approach works only if all the miners
 are trusted, because if there is only one miner infected or not trusted he
 could mine a block with non-authorized transaction, thus attacking the
 Blockchain. Another solution could be allowing only a very-restricted number of
-computer to mine the Blockchain: supposing they are all trustworthy this
+computers to mine the Blockchain: supposing they are all trustworthy this
 approach would fail the initial Blockchain design, centralizing the
 network.
 A solution that has kicked off well seems to be the one where all the nodes in
 the network are allowed to mine, and the first one who solves a
 computational-intensive puzzle can attach the block to the existing chain,
 receiving a reward for the work made. We will see an example of this approach,
-called proof-of-work.
+called \textbf{proof-of-work}.
 
 
 \paragraph{Proof-of-Work}
