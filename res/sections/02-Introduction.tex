@@ -35,8 +35,10 @@ blocks, thanks to `proof-of-work' puzzles. When a block is generated, a
 reward is released from the network, compensating the users that spent
 computational time to generate and validate the transaction block.
 
-Blockchain database differs from other types of databases because it does not
-allow to modify or delete saved data, but only to add new information.
+Blockchain implementations, especially for the financial one, do not allow to
+modify or delete saved data, but only to add new information. This is done to
+prevent any transaction forgery by attackers, although it does not stop the
+possibility for an attacker to add new material that invalidate the old one.
 
 \subsection{Technical Analysis}
 
