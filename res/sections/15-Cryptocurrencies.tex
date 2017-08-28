@@ -43,9 +43,14 @@ history transactions for a single user.
 
 \subsection{Account management}
 
-User and account concepts don't exists in the Blockchain implementation.
-Therefore there is not any real account management, and no password. Recovering
-a lost wallet is almost impossible, because if the asymmetric keys are lost
-there is no way to reclaim the transactions, hence to reclaim the money. This
-Blockchain characteristic lead to money being locked-in forever into lost
-accounts.
+User and account concepts do not exists in the Blockchain implementation per-se.
+Therefore there is not any real account management, and no password
+authentication. In its financial implementations, recovering a lost wallet is
+usually almost impossible, because if the asymmetric keys are lost there is no
+way to reclaim the transactions, hence to reclaim the money. This Blockchain
+characteristic lead to money being locked-in forever into lost accounts in
+cryptocurrencies.
+It is important to note by the way that Blockchain implementations that differ
+from Nakamoto's original idea could have account management, as for example
+in\cite{azaria16} where the access to the Blockchain is regulated via prior
+authentication.
