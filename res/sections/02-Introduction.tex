@@ -72,7 +72,7 @@ public key of the next owner ($B$)
  \item Save all the signatures in the chain
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[ht]
  \centering
  \includegraphics[scale=0.35]{transaction}
  \caption{A typical series of transactions}
@@ -204,3 +204,43 @@ reason is called \textit{proof-of-work}\cite{back02}.
 
 
 % TODO: why not talking about the forking problem?
+
+\subsection{The forking problem}
+
+The last block in a blockchain is defined as \textit{head}. When a
+\textbf{fork} happen, new heads are formed.
+
+After a miner finishes its proof-of-work thus solving the computational puzzle
+it will try to attach its block to the chain, in order to gain a reward (if
+any). There is the possibility that two miners will found a good solution for
+the same block and that they will try to attach to the blockchain at the same
+time: this will result in the blockchain splitting, operation known also as
+\textbf{forking}. In this kind of fork miners will work on one branch of the
+chain, attaching blocks: eventually, one of the blockchain will prevail on the
+others. When this happens, the other branches will be discarded, and the blocks
+forming this branches will become \textit{orphan blocks}~\cite{decker13}.
+Miners that mine orphan blocks likely will not receive any reward.
+
+Usually this kind of forks are not a threat when the computational power is
+distributed in an uniform manner through the network, but when one member has a
+lot of it could be a security issue. In fact, a member could try to carry on a
+\textit{fork attack}. In order to succeed, the attacker branch (let's call it
+$B_A$) needs to ``race''~\cite{nakamoto08} with the honest one (that for the
+sake of simplicity we call it $B_H$) and to overtake it. To be able to have
+$B_A > B_H$ the attacker needs to have more computational power than the rest of
+the network, in other words more than $51\%$ of it.
+If this attack succeed, the attacker is able to make her chain ($B_A$) with
+altered transaction the honest chain $B_H$.
+In an financial application, the attacker will not be able to add unlimited
+founds to his wallet or to change arbitrary transaction (since every
+transaction is signed and honest node will not accept forged transactions), but
+will be able to change his own transaction and to take the money back.
+
+Forks are used in different system to handle mining software update easily, or
+even to change on purpose the content of a transaction. In the first case these
+kind of forks are called \textit{soft forks} where there is a change in the
+Blockchain structure that is retro-compatible with the current chain rules, in
+the second case are called \textit{hard forks} and the changes are so deep that
+miner that have not updated its mining software will see new transactions
+as invalid. An example of hard forks is what split the cryptocurrency Ethereum
+in two versions, Ethereum Classic and Ethereum.
