@@ -41,7 +41,7 @@ order obfuscate the sender to eventually send the money to the original
 recipient.} could mitigate this problem, making more difficult to rebuild
 history transactions for a single user.
 
-\subsection{Account management}
+\subsection{Account and Keys management}
 
 User and account concepts do not exists in the Blockchain implementation per-se.
 Therefore there is not any real account management, and no password
@@ -55,3 +55,44 @@ from Nakamoto's original idea could have account management, as for example
 in\cite{azaria16} where the access to the Blockchain is regulated via prior
 authentication, or in\cite{zhou16} where the authors added an authentication
 layer to better manage Bitcoin accounts.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[scale=0.5]{authenticationMethods}
+ \label{img:authMethods}
+ \caption[Different ways to access a Blockchain database]{Different ways to
+access a Blockchain database:
+ \begin{enumerate*}[label=\arabic*)]
+  \item Without any extra authentication
+  \item Via a separated server that manages user authentication
+  \item Adding another verification layer
+ \end{enumerate*}}
+\end{figure}
+
+This highlight the importance for a user to keep a backup of his keys. Wallet
+keys can be stored in different ways.
+
+\paragraph{Digital Copy} One could make a simple digital copy of the key on a
+digital storage (for example an USB key), but this would lead to expose the
+keys to several vulnerabilities: first of all, the key could be stolen lost.
+Even having the keys in any physical media without any protection system is
+dangerous: as explained in\cite{eskandari15}, an attacker could spread a
+malware able to send to him copies of users' private keys. Encrypting the keys
+would work only to mitigate theft attacks, but a malware could always be
+shipped with a keylogger, nullifying this protection.
+
+Coping the key online on some storage service or cloud will not enhance its
+security either, because there is the possibility that the service provider
+reads the user data, or that the service suffers an attack and leaks its
+content.
+
+\paragraph{Physical Copy} There is the possibility for currencies like Bitcoin
+to print the wallet address and private key into a piece of paper. These system
+though are not secure as they seems, because they are exposed, like media
+storage, to the possibility of being stolen or the possibility to be lost.
+Another threat is that the key could be easily seen and
+copied~\cite{eskandari15}.
+
+
+A possibility to effectively protect the keys is the multi-factor
+authentication, that enhance the security, with a usability degradation.
