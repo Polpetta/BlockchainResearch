@@ -88,6 +88,9 @@ Several problems arise from this:
 The list of transactions could be verified thanks to the chain of ownership:
 in fact, every user has a local copy of the database so it has the possibility
 to check the whole transaction history and define if the transaction is valid.
+This possibility enables nodes to check autonomously the transaction validity,
+thus allowing them to reject the malformed or forged one, without any
+third-party necessity~\cite{nakamoto08}.
 
 \paragraph*{Double spending problem}
 The easiest solution could be ensuring a third-party to check all the
@@ -158,8 +161,6 @@ be choose.
 As said in \ref{TU}, every transaction is broadcast through the network so when
 the miners mine a new block every peer starts to download it.
 
-% TODO there are more than one mining algorithm! subsection for mining
-%algorithm and a paragraph for ``proof-of-work''
 \subsection{Mining algorithms}
 In a Blockchain database, peers can emit new transactions in the network. These
 need to be added into blocks and these blocks need to be concatenated in order
