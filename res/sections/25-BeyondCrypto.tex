@@ -25,15 +25,18 @@ It is important to take in consideration that centralizing the mining nodes
 attackers will focus on those, trying to inject malware or viruses to be able to
 take control of the chain. Restricting the mining nodes means that is important
 to pay particular attention to these nodes.
-% Quindi restringendo i nodi che possono minare bisogna prendere particolari
-% precauzioni su di essi per evitare attacchi alla blockchain.
+Moreover, the mining process could be public if the Blockchain does not contain
+confidential information as explained in~\cite{tian17}, where a combination of
+RFID, IoT and Blockchain technology can lead to the monitoring of a food supply
+chain.
 
-A solution to this problem could be to use another and mature blockchain, as the
-Bitcoin one, that is already mature, with the disadvantage of having to parse
-only the data sent by other IoT devices. An attacker with this solution instead
-of try to take over the block chain could try to forge false data, pushing the
-transaction in the same chain (since the Bitcoin blockchain is public and
-anyone can make new transactions).
+Another solution to this problem could be to use an already existing and mature
+blockchain, as the Bitcoin one, with the disadvantage of having to parse only
+the data sent by other IoT devices. An attacker with this solution instead of
+trying to take over the whole blockchain it could try to forge false data,
+pushing the transaction in the same chain (since the Bitcoin blockchain is
+public and anyone can make new transactions) and make the other nodes believe
+that the data are authentic.
 
 \paragraph*{Access Control Manager}
 \label{bc:acm}
