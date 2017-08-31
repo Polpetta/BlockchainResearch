@@ -15,9 +15,10 @@ contracts between users.
 Our society is composed of laws, rights and regulations between people. Every
 resource we spend (for example water) is counted and billed mostly
 automatically.
-Blockchain contracts take this idea and ports it in a distributed environment.
+Blockchain smart contracts take this idea and ports it in a distributed
+environment.
 An user can write with a programming language code that resemble a contract: it
-can decide it's nature and how much an service can cost. Contracts are saved and
+can decide its nature and how much an service can cost. Contracts are saved and
 published in the blockchain, and become immutable.
 When another user wants to use that contract, the code will be executed by a
 miner and the transaction, if any, will be processed and saved as usual.
@@ -31,8 +32,9 @@ example, the water bill).
 In order to achieve these feature the smart contracts programming language has
 to be Turing-complete: this means that the computation of a specific piece of
 code could never end. This may be considered a vulnerability since an attacker
-could use that to stop the miners (that exec the smart contracts code) in a
-infinite loop, thus blocking the blockchain transactions. This problem has been
-mitigated rewarding the miner: the user that made the contract will pay for
-every contract execution. If the attacker does not have enough money to pay for
-the execution the miners will refuse to work~\cite{kosba16}.
+could use that to stop the miners (that execute the smart contracts code) in a
+infinite loop, thus blocking the processing of new transactions.  This problem
+has been mitigated rewarding the miner: the user that made the contract will
+pay a fee for every contract execution. If the attacker does not have enough
+money to pay for the execution the miners will refuse process
+the contract~\cite{kosba16}.
