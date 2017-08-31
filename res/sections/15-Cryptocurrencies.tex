@@ -21,25 +21,41 @@ to redeem the money.
 
 \subsection{Privacy during transactions}
 
+
+
+With cryptocurrencies sometimes it is important to keep some kind of privacy
+during a transaction. There are different countries in the world where
+fundamental liberties do not exists, mass surveillance is a threat for
+people and even a simple movement of money online can constitute a problem.
 Due the fact that every transaction is broadcast to the network there is no
 privacy about the transaction content. Everyone can see how much is sent to
-other addresses. Many websites provide functionalities
-\footnote{For example, \url{https://blockexplorer.com/} enable users to search
-in the Bitcoin Blockchain.} that allows anyone to easily search data in a
-working Blockchain implementatin. The ``real'' privacy that Blockchain offers
-is defined as pseudo-privacy: everyone can see the details of any transaction,
-but it is very difficult to know the people behind a payment, because the
-transfer is identified only with wallets, that aren't physically linked to
-someone. There are different studies \cite{guadamuz15} though that point out
-how it is relatively easy for an attacker to discover user information thanks
+other addresses. Many websites provide functionalities \footnote{For example,
+\url{https://blockexplorer.com/} enable users to search in the Bitcoin
+Blockchain.} that allows anyone to easily search data in a working Blockchain
+implementation.
+
+Wallets are usually defined as ``pseudo anonymous'', meaning that until the
+user does not link any personal information with that address she is anonymous.
+This form of anonymity is not strong because it quite easy for an attacker to
+track the transaction history of a user and to be able to infer information
+about her of her habits.
+There are different studies \cite{guadamuz15} that point out how it is
+relatively easy for an attacker to discover user information thanks
 to payments on online shops. An user could buy some goods from an online store
-with a cryptocurrency, where she's registered with a username and password,
-linking \textit{de facto} his identity with his wallet. Using a
-\textit{mixer}\footnote{Mixers are online websites that splits the amount to
-send to someone into different wallets, then they make fake transactions in
-order obfuscate the sender to eventually send the money to the original
-recipient.} could mitigate this problem, making more difficult to rebuild
-history transactions for a single user.
+with a cryptocurrency, where she is registered with a username and password,
+linking \textit{de facto} her identity with her wallet.
+The IP address also plays a role~\cite{koshy14} and with statistical analysis
+is possible to link an IP address with a wallet, making it easier to track user
+identity.
+Fortunately, there are online services that make IP and address tracking more
+difficult: these services are known as \textbf{mixers} and are usually websites
+that send amount of money from an address to the other, ensuring that during the
+transfer additional money movement is done in different ways, making more
+difficult for an attacker to track the original payer. This can enhance the
+privacy and mitigate the problem, making more difficult to rebuild history
+transactions for a single user, at the cost of more transfer fees. Using mixers
+means that some form of thrust is placed in the service owner, than could be an
+attacker itself eavesdropping users that are searching for more privacy.
 
 \subsection{Account and Keys management}
 
@@ -51,10 +67,10 @@ way to reclaim the transactions, hence to reclaim the money. This Blockchain
 characteristic lead to money being locked-in forever into lost accounts in
 cryptocurrencies.
 It is important to note, by the way, that Blockchain implementations that differ
-from Nakamoto's original idea could have account management, as for example
-in\cite{azaria16} where the access to the Blockchain is regulated via prior
-authentication, or in\cite{zhou16} where the authors added an authentication
-layer to better manage Bitcoin accounts.
+from Nakamoto's original idea could have a different account management, as for
+example in\cite{azaria16} where the access to the blockchain is regulated via
+prior authentication, or in\cite{zhou16} where the authors added an
+authentication layer to better manage Bitcoin accounts.
 
 \begin{figure}[ht]
  \centering
@@ -69,12 +85,12 @@ access a Blockchain database:
  \end{enumerate*}}
 \end{figure}
 
-This highlight the importance for a user to keep a backup of her keys. Wallet
+This highlights the importance for a user to keep a backup of her keys. Wallet
 keys can be stored in different ways.
 
 \paragraph{Digital Copy} One could make a simple digital copy of the key on a
 digital storage (for example an USB key), but this would lead to expose the
-keys to several vulnerabilities: first of all, the key could be stolen or lost.
+keys to several vulnerabilities: first of all, the keys could be stolen or lost.
 Even having the keys in a physical media without any protection system is
 dangerous: as explained in\cite{eskandari15}, an attacker could spread a
 malware able to send to her copies of users' private keys. Encrypting the keys
@@ -86,35 +102,13 @@ security either, because there is the possibility that the service provider
 reads the user data, or that the service suffers an attack and leaks its
 content.
 
+A possible solution to effectively protect the keys with these backups is
+requiring a multi-factor authentication system to decrypt them, enhancing the
+security but with a usability degradation.
+
 \paragraph{Physical Copy} There is the possibility for currencies like Bitcoin
-to print the wallet address and private key into a piece of paper. These system
-though are not secure as they seems, because they are exposed, like media
-storage, to the possibility of being stolen or the possibility to be lost.
+to print the wallet address and its private key into a piece of paper. These
+systems though are not secure as they seems, because they are exposed, like the
+media storage, to the possibility of being stolen or the possibility to be lost.
 Another threat is that the key could be easily seen and
 copied~\cite{eskandari15}.
-
-
-A possible solution to effectively protect the keys is using the multi-factor
-authentication, that enhance the security, with a usability degradation.
-
-
-\subsection{Account privacy}
-
-With cryptocurrencies sometimes it is important to keep some kind of privacy
-during a transaction. There are different countries in the world where
-fundamental liberties do not exists, mass surveillance is a threat for
-people and even a simple movement of money can constitute a problem.
-
-Wallets are usually defined as ``pseudo anonymous'', this means that until the
-user does not link any personal information with that address she is anonymous.
-This form of anonymity is weak because it quite easy for an attacker to track
-the transaction history of a user and to be able to infer information about her
-of her habits. The IP address also plays a role~\cite{koshy14} and with
-statistical analysis is possible to link an IP address with a wallet, making it
-easier to track user identity.
-Fortunately, there are online services that make IP and address tracking more
-difficult: these services are known as \textbf{mixer}, and allow to send amount
-of money from an address to the other, ensuring that during the transfer
-additional money movement is done in different ways, making more difficult for
-an attacker track the original payer. This can enhance the privacy, at the cost
-of more transfer fees.
