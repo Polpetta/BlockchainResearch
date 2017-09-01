@@ -2,26 +2,24 @@
 \label{sec:crypto_corr}
 
 Blockchain was specifically designed to work with cryptocurrencies. In fact,
-transactions works very well for transfering money from a user to another, while
+transactions work very well for transfering money from a user to another, while
 every block works like an archive of them, allowing everyone to browse
 the chain history and check every money movement.
 
-Miners for every transaction and for every block processed get a reward,
-usually in the current cryptocurrency. This kind of reward mitigate attackers to
-try to modify the blockchain to have back their funds.
+Miners get a reward for every transaction and for every block processed,
+usually in the current cryptocurrency. This kind of reward mitigates attackers
+to try to modify the blockchain to have back their funds.
 
-Any user hold at least one \textbf{wallet}, that has a specific address. An
+Any user holds at least one \textbf{wallet}, that has a specific address. An
 address is a random-generated token 26-35 alphanumeric characters long. Users
-can have more than one wallet, and creating a new one it does not require any
+can have more than one wallet, and creating a new one does not require any
 authentication.
 
 Money can be sent to non-existing wallets. These money transfers are saved in
-the chain and if someone create a wallet with the exact token it will be able
+the chain and if someone creates a wallet with the exact token it will be able
 to redeem them.
 
 \subsection{Privacy during transactions}
-
-
 
 With cryptocurrencies sometimes it is important to keep some kind of privacy
 during a transaction. There are different countries in the world where
@@ -31,7 +29,7 @@ Due the fact that every transaction is broadcast to the network there is no
 privacy about the its content. Everyone can see how much is sent to
 other addresses. Many websites provide functionalities \footnote{For example,
 \url{https://blockexplorer.com/} enable users to search in the Bitcoin
-Blockchain.} that allows anyone to easily search data in a working Blockchain
+Blockchain.} that allow anyone to easily search data in a working Blockchain
 implementation.
 
 Wallets are usually defined as ``pseudo anonymous'', meaning that until the
@@ -59,7 +57,7 @@ attacker itself eavesdropping users that are searching for more privacy.
 
 \subsection{Account and Keys management}
 
-User and account concepts do not exists in the Blockchain implementation per-se.
+User and account concepts do not exist in the Blockchain implementation per-se.
 Therefore there is not any real account management, and no password
 authentication. In its financial implementations, recovering a lost wallet is
 usually almost impossible, because if the asymmetric keys are lost there is no
@@ -107,8 +105,8 @@ requiring a multi-factor authentication system to decrypt them, enhancing the
 security but with a usability degradation.
 
 \paragraph{Physical Copy} There is the possibility for currencies like Bitcoin
-to print the wallet address and its private key into a piece of paper. These
-systems though are not secure as they seems, because they are exposed, like the
+to print the wallet address and its private key into a piece of paper. This
+system though is not safe as it seems, because they are exposed, like the
 media storage, to the possibility of being stolen or the possibility to be lost.
 Another threat is that the key could be easily seen and
 copied~\cite{eskandari15}.
