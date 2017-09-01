@@ -3,7 +3,7 @@
 
 Thanks to its design, Blockchain is finding different applications. Here
 we will briefly show and discuss about the other places where Blockchain
-is being deployed.
+is being used.
 
 \paragraph*{Internet of Things}
 
@@ -13,14 +13,16 @@ allows to build a decentralized system where IoT devices can store information,
 without the possibility from an attacker to change the data already saved in
 the database\cite{politecnico16}.
 
-The main problem of using Blockchain as a P2P data storage in a IoT environment
-is that if the network is too small the possibility for an attacker of taking
-control of the main chain are high using a Bitcoin-similar proof-of-work. In
-fact, the Blockchain is more vulnerable when the number of miners is small and
-when the blockchain is new. A way to mitigate this issue could be allowing only
-a restricted or trusted nodes to mine transactions. This seems to lead to
-centralization, but it makes sense if the blockchain is private (the access is
-restricted to a close number of people) and the IoT devices can not be trusted.
+The main problems of using Blockchain as a P2P data storage in a IoT environment
+is first of all that the memory required to save the blockchain could be a lot
+and it may not be feasible to have it in the device and that if the network is
+too small the possibility for an attacker of taking control of the main chain
+are high using a Bitcoin-similar proof-of-work. In fact, the Blockchain is more
+vulnerable when the number of miners is small and when the blockchain is new. A
+way to mitigate this issue could be allowing only a restricted or trusted nodes
+to mine transactions. This seems to lead to centralization, but it makes sense
+if the blockchain is private (the access is restricted to a close number of
+people) and the IoT devices can not be trusted.
 It is important to take in consideration that centralizing the mining nodes
 attackers will focus on those, trying to inject malware or viruses to be able to
 take control of the chain. Restricting the mining nodes means that is important
@@ -45,9 +47,9 @@ As proposed in\cite{dp15}, Blockchain can act as an access manager to enhance
 users privacy in modern services. This could be very useful especially in the
 mobile area, where applications can have easy access to personal data. In the
 system design, the authors take in consideration to use a local database
-(LevelDB) to be able to save data in a key-store way. This is a demostrantion
+(LevelDB) to be able to save data in a key-value way. This is a demostrantion
 that even though Blockchain can be used as access control manager there is the
-need to save some data in a centralized way, thus allowing attackers to use
+need to save some data in a centralized way, thus exposing information to
 well known attacks/vulnerabilities (e.g. DDoS, Sniffing).
 
 \paragraph*{Storing records}
