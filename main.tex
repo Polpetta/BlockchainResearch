@@ -1,0 +1,49 @@
+% UniPD presentation about:
+% ``Analisi tecnica e sociale delle tecnologie legate alle blockchain.''
+% Polonio Davide <poloniodavide@gmail.com>
+%
+% UniPD presentation theme for beamer
+% Matteo Di Pirro <matteodipirro@gmail.com>
+%
+% Adapted from UH Manoa theme by:
+% UH Manoa presentation theme for beamer
+% Jeff Delmerico <jeffdelmerico@gmail.com> 2012
+% https://github.com/jeffdelmerico/UH_Beamer_Theme.git
+
+
+\documentclass{beamer}
+\usecolortheme[dark]{solarized/beamercolorthemesolarizedUniPD}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[absolute,overlay]{textpos}
+\usepackage{helvet}
+\usepackage{eurosym} % Euro symbol
+
+% Bitcoin symbol
+\def\bitcoin{%
+  \leavevmode
+  \vtop{\offinterlineskip %\bfseries
+    \setbox0=\hbox{B}%
+    \setbox2=\hbox to\wd0{\hfil\hskip-.03em
+    \vrule height .3ex width .15ex\hskip .08em
+    \vrule height .3ex width .15ex\hfil}
+    \vbox{\copy2\box0}\box2}}
+
+
+\title{Blockchain, cryptocurrencies and Smart Contracts: security and privacy
+issues}
+%\subtitle{\newline Subtitle}
+\author{Davide Polonio}
+\date{12 Sep 2017}
+\institute{University of Padova}
+\newcommand{\dep}{Mathematics department}
+
+\begin{document}
+
+\graphicspath{{res/image/}}
+\input{res/listOfSections}
+
+%\makethanks
+\end{document}
