@@ -1,0 +1,3 @@
+[submodule "beamercolorthemesolarized"]
+	path = beamercolorthemesolarized
+	url = https://github.com/Polpetta/beamercolorthemesolarized.git
